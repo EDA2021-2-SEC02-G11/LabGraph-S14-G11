@@ -27,6 +27,7 @@
 
 import sys
 import config
+import time
 import threading
 from App import controller
 from DISClib.ADT import stack
@@ -83,8 +84,10 @@ def optionThree(cont):
 
 
 def optionFour(cont, initialStation):
+    inicio = time.process_time()
     controller.minimumCostPaths(cont, initialStation)
-
+    fin = time.process_time()
+    print('Se demoró '+ str(fin - inicio)+' s.')
 
 def optionFive(cont, destStation):
     haspath = controller.hasPath(cont, destStation)
